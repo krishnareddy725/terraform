@@ -1,0 +1,22 @@
+Ansible is a configaration management Tool.
+
+Terraform is IAC(Infrastructure as a code).if we create AWS services through code we will get many advantages than manual.
+
+TERRAFORM ADVANTAGES:-
+
+1) Version control: Version control is very important when we are doing scripting, we also keep terraform code in github any time we can get back to previous version.
+  ex: android developers
+
+2) Consistent infrastructure: working in dev but not working in prod, terraform also maintain same code wil work with all environments. so infrastructure is consistent across all environments.
+
+3) Automated Infra: 
+   EVERYTHING IS CRUD
+   created infra
+   Read infra
+   update infra    we can maintain all these operations verywell in terraform.
+   Delete infra
+
+4) Inventary Management: inventary management means if project is big there will be many services. like multiple VPC, multiple route 53, EC2, multiple load balancers, EKS infra structure, S3 buckets etc.
+  if client asks what are the services are running in our project, it is very toughf to go AWS and check the services, to overcome this we can just see terraform code and give the services list.
+
+5) COST Optimisation: If we need we keep the infra, if we dont we delete the infra.
