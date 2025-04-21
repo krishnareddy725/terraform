@@ -19,4 +19,73 @@ TERRAFORM ADVANTAGES:-
 4) Inventary Management: inventary management means if project is big there will be many services. like multiple VPC, multiple route 53, EC2, multiple load balancers, EKS infra structure, S3 buckets etc.
   if client asks what are the services are running in our project, it is very toughf to go AWS and check the services, to overcome this we can just see terraform code and give the services list.
 
-5) COST Optimisation: If we need we keep the infra, if we dont we delete the infra.
+5) COST Optimisation: If we need we keep the infra, if we dont we delete the infra. it is very simple to manage by terraform.
+
+6) Automatic depence management: we can create the resources, terraform will take care of dependence management.
+   ex: to create route-53 in aws ec2 server should run, take the ec2 server ip-addresses we needs to give in route-53. so route-53 is depenent on ec2-instance. we can mention easily this kind of depence in terraform.
+
+7) Terraform Modules: Once we wrote the code for project-1 and no needs to write the code for project-2. we can create the terraform code as a module other projects can use it with out wrirting from the scratch.
+
+Terraform is a declarative way of creating infrastructure.
+Q) What is declarative?
+A) declarative meaning is whatever we will write we will get it, if you write right syntax.
+
+Declarative advantages are easy sysntax and no needs to follow the synatx.
+
+===========================================================================
+TERRAFORM SETUP:-
+Google: Terraform download --> Install terraform --> windows(AMD64)--> download the zip file and extract it --> copy that .exe file to softwares(create folder) under C drive.
+
+Now we needs to specify the path --> windows search bar(env) --> edit the system environment variables --> environment variables --> system variables
+   edit(enter) --> provide this(C:\softwares)
+   gitbash/windows cmd: terraform version --> still no output restart the system.
+
+To push our infrastructure code to AWS account we required authentication, so download aws cli.
+Google: aws cli windows --> install or update the latest version of the aws cli(windows) --> download and run the aws cli MSi installer for windows(64 bit) --> After download install it.
+
+aws cli will authenticate to the awsaccount then only we can push the code.
+windows terminal: 
+C:\Users\vnred>aws --version
+aws-cli/2.26.5 Python/3.13.2 Windows/11 exe/AMD64
+                                           (TERRAFORM SETUP DONE)
+============================================================================
+
+IMP NOTE: Terraform we can create the infrastructure across the cloud platform.
+
+Syntax:
+resource "what-resource" "name-your-resource-your-wish" {
+
+}
+
+this is called HCL(hashicorp configaration language), here also we see
+variables
+datatypes
+conditions
+loops
+functions
+
+Note: Terraform file will end with .tf.
+
+CREATE USER
+===========
+AWS --> IAM --> users --> Create user
+username(Provide username) --> Next --> check attach policicies directly
+policyname(Adminstarater policy{select}) --> Next --> create user(ebter)
+
+terraform(click here) --> security credentials --> create access key --> select command line interface
+
+select the i understand the above recamandations and wants to procced to create an access key
+
+next --> Create access key(copy this information from notepad)
+
+GitBash
+-------
+$ aws configure
+AWS Access Key ID [None]: take it from notepad
+AWS Secret Access Key [None]: take it from notepad
+Default region name [None]: us-east-1
+Default output format [None]:
+
+if we follow above process credentials will save in "C:\Users\vnred\.aws" location.
+
+Now terraform will automatically connect to aws cli and fetch the credentials.
